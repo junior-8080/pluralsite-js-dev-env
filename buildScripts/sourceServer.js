@@ -4,7 +4,7 @@ import open from 'open';
 import webpack from 'webpack'
 import config from '../webpack.config.dev'
 
-/* eslint-disable-no-console */
+/* eslint-disable no-console */
 
 const port = 3000;
 const compiler = webpack(config);
@@ -17,6 +17,17 @@ app.use(require('webpack-dev-middleware')(compiler,{
 
 app.get('/',(req,res)=>{
   res.sendFile(path.join(__dirname,"../src/index.html"));
+});
+
+app.get('/users',function(req,res){
+ res.json(
+    [
+      {"id": 1,"firstname":"Bob","lastname": "Smith","email":"bob@gmail.com"},
+      {"id": 2,"firstname":"Sundar","lastname": "Pitchai","email":"sundar@gmail.com"},
+      {"id": 3,"firstname":"Lee","lastname": "Kam","email":"lee@gmail.com"},
+      {"id": 4,"firstname":"Micky","lastname": "Loly","email":"loly@gmail.com"}
+    ]
+  );
 })
 
 app.listen(port,(err)=>{

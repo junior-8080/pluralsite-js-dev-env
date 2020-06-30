@@ -1,6 +1,16 @@
 import './index.css'
-import numeral from 'numeral'
+import {getUsers} from './api/userApi'
 
-const courseValue = numeral(1000).format('$0.00');
-// debugger;
-console.log(`i would pay ${courseValue} for this awesome course`);
+getUsers().then(result => {
+  let userBody = "";
+  result.forEach(user => {
+    userBody+=`<tr>
+      <td><a href="#" data-id="${user.id}" class="deleteUser">Delete</a></td>
+      <td>${user.firstname}</td>
+      <td>${user.lastname}></td>
+      <td>${user.email}</td>
+      </tr>
+    `
+  });
+  global.document.getElementById('users').innerHTML = userBody;
+})
