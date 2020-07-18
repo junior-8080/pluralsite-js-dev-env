@@ -1,4 +1,5 @@
 import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   debug:true,
@@ -13,7 +14,23 @@ export default {
     publicPath:'/',
     filename: 'bundle.js'
   },
-  plugins: [],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template:'src/index.html',
+      minify:{
+        removeComments: true,
+        collapseWhitespace: true,
+        useShortDoctype: true,
+        removeRedundantAttributes: true,
+        removeEmptyAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true
+      },
+      inject:true
+    }),
+  ],
     module: {
       loaders: [
         {test:/\.js$/,exclude:/node_modules/,loaders: ['babel']},

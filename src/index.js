@@ -3,6 +3,7 @@ import {getUsers, deleteUsers} from './api/userApi'
 
 getUsers().then(result => {
   let userBody = "";
+  console.log(result);
   result.forEach(user => {
     userBody+=`<tr>
       <td><a href="#" data-id="${user.id}" class="deleteUser">Delete</a></td>

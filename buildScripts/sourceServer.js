@@ -22,10 +22,10 @@ app.get('/',(req,res)=>{
 app.get('/users',function(req,res){
  res.json(
     [
-      {"id": 1,"firstname":"Bob","lastname": "Smith","email":"bob@gmail.com"},
-      {"id": 2,"firstname":"Sundar","lastname": "Pitchai","email":"sundar@gmail.com"},
-      {"id": 3,"firstname":"Lee","lastname": "Kam","email":"lee@gmail.com"},
-      {"id": 4,"firstname":"Micky","lastname": "Loly","email":"loly@gmail.com"}
+      {"id": 1,"firstName":"Bob","lastName": "Smith","email":"bob@gmail.com"},
+      {"id": 2,"firstName":"Sundar","lastName": "Pitchai","email":"sundar@gmail.com"},
+      {"id": 3,"firstName":"Lee","lastName": "Kam","email":"lee@gmail.com"},
+      {"id": 4,"firstName":"Micky","lastName": "Loly","email":"loly@gmail.com"}
     ]
   );
 })
